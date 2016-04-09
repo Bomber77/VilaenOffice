@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "vilaenOffice",
+    "style": "less",
+    "postcss": true
+  }
+}
