@@ -30,6 +30,7 @@ class AppComponent extends React.Component {
                         width={300}
                         docked={false}
                         open={this.state.open}
+                        onRequestChange={(open) => this.setState({open})}
                         />
                 </div>
             </MuiThemeProvider>
