@@ -1,31 +1,45 @@
 require('normalize.css');
 
 import React from 'react';
-import IconButton from 'material-ui/lib/icon-button';
-import NavigationMenu from 'material-ui/lib/svg-icons/navigation/menu';
-import IconMenu from 'material-ui/lib/menus/icon-menu';
 import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
-import VilaenThemeLight from './VilaenThemeLight';
-import { AppBar } from 'material-ui';
-import Logo from './Logo';
- 
-function showLeftNav() {
-    console.log('open left nav.');
-}
+import VilaenThemeLight from '../styles/Themes/VilaenThemeLight';
+import { LeftNav } from 'material-ui';
+
+import Header from './header/header';
+// import LeftNavBar from './LeftNavBar/LeftNavBar';
+
 
 class AppComponent extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = props;
+        this.toggleLeftNav = this.toggleLeftNav.bind(this);
+    }
+
+    toggleLeftNav() {
+        console.log('open left nav.');
+        this.setState({ open: !this.state.open });
+    }
+
     render() {
         return (
             <MuiThemeProvider muiTheme={VilaenThemeLight}>
-                <AppBar iconElementLeft={<IconButton onTouchTap={this.showLeftNav}><NavigationMenu /></IconButton>}>
-                    <Logo/>
-                </AppBar>
+                <div>
+                    <Header onMainMenuClick={this.toggleLeftNav} />
+                    <LeftNav
+                        width={300}
+                        docked={false}
+                        open={this.state.open}
+                        onRequestChange={(open) => this.setState({open})}
+                        />
+                </div>
             </MuiThemeProvider>
         );
     }
 }
 
 AppComponent.defaultProps = {
+    open: false
 };
 
 export default AppComponent;
