@@ -3,7 +3,7 @@ require('normalize.css');
 import React from 'react';
 import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
 import VilaenThemeLight from '../styles/Themes/VilaenThemeLight';
-import { LeftNav } from 'material-ui';
+import { LeftNav, Tabs, Tab } from 'material-ui';
 
 import Header from './header/header';
 // import LeftNavBar from './LeftNavBar/LeftNavBar';
@@ -30,7 +30,7 @@ class AppComponent extends React.Component {
                         width={300}
                         docked={false}
                         open={this.state.open}
-                        onRequestChange={(open) => this.setState({open})}
+                        onRequestChange={(open) => this.setState({ open }) }
                         />
                 </div>
             </MuiThemeProvider>
