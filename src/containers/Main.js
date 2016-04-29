@@ -1,11 +1,15 @@
 require('normalize.css');
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
 import VilaenThemeLight from '../styles/Themes/VilaenThemeLight';
 import { LeftNav, Tabs, Tab } from 'material-ui';
 
-import Header from './header/header';
+import { Provider } from 'react-redux';
+import { Router, Route, browserHistory, useRouteHistory } from 'react-router';
+import { syncHisotryWithStore, routerReducer } from 'react-router-redux';
+
+import Header from '../components/header/header';
 // import LeftNavBar from './LeftNavBar/LeftNavBar';
 
 
@@ -41,5 +45,6 @@ class AppComponent extends React.Component {
 AppComponent.defaultProps = {
     open: false
 };
+
 
 export default AppComponent;
