@@ -1,24 +1,28 @@
 import React, { Component, PropTypes } from 'react';
 import IconButton from 'material-ui/lib/icon-button';
 import NavigationMenu from 'material-ui/lib/svg-icons/navigation/menu';
-import { AppBar, Tabs, Tab } from 'material-ui';
+import { AppBar, Tabs, Tab, Avatar } from 'material-ui';
 import Logo from './Logo';
+import User from './user';
 
 import VilaenThemeLight from '../../styles/Themes/VilaenThemeLight';
 import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
 
-const themeStyle = getMuiTheme(VilaenThemeLight); 
+
+const themeStyle = getMuiTheme(VilaenThemeLight);
+const spaceOfTabsRight = 2; 
 
 const tabsContainerStyle = {
     'position': 'absolute',
+    'dispaly': 'inline-block',
+    'float': 'left',
+    'right': themeStyle.appBar.height * spaceOfTabsRight,
     'height': themeStyle.appBar.height,
     'line-height': themeStyle.appBar.height, 
-    'left': '40%',
     'overflow': 'hidden',
-    'margin': '0 auto',
 }; 
 
-const tabsStyle ={
+const tabsStyle = {
     
 };
 
@@ -30,12 +34,13 @@ class Header extends Component {
                 <Logo />
                 <div style={tabsContainerStyle}>
                     <Tabs>
-                        <Tab label="Item One">
+                        <Tab label="Booking">
                         </Tab>
-                        <Tab label="Item Two">
+                        <Tab label="Build Room">
                         </Tab>
-                    </Tabs>                
+                    </Tabs> 
                 </div>
+                <User />
             </AppBar>
         )
 
